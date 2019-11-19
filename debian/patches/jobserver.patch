@@ -1,0 +1,60 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -17,14 +17,14 @@
+ 
+ .PHONY: lib prog all depend install clean distclean
+ lib1:
+-	@for subdir in $(libsubdirs); do \
++	@+for subdir in $(libsubdirs); do \
+           echo Making lib in $$subdir; \
+ 	  (cd $$subdir && $(MAKE) lib) \
+             || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
+         done && test -z "$$fail"
+ 
+ prog:
+-	@for i in utils; do \
++	@+for i in utils; do \
+ 	  echo Making prog in $$i; \
+ 	  (cd $$i; ${MAKE} prog) \
+ 	   || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
+--- a/contrib/Makefile.in
++++ b/contrib/Makefile.in
+@@ -16,7 +16,7 @@
+ 
+ .PHONY: lib install depend clean distclean
+ lib:
+-	@for subdir in $(libsubdirs); do \
++	@+for subdir in $(libsubdirs); do \
+ 	  echo making lib in $$subdir; \
+ 	  (cd $$subdir && $(MAKE) lib) \
+ 	    || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -14,7 +14,7 @@
+ 
+ .PHONY: lib prog all depend install clean distclean
+ lib:
+-	@for subdir in $(libsubdirs); do \
++	@+for subdir in $(libsubdirs); do \
+ 	  echo making lib in $$subdir; \
+ 	  (cd $$subdir && $(MAKE) lib) \
+ 	    || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
+--- a/utils/Makefile.in
++++ b/utils/Makefile.in
+@@ -29,14 +29,14 @@
+ 
+ .PHONY: lib prog install depend clean distclean
+ lib:
+-	@for subdir in $(libsubdirs); do \
++	@+for subdir in $(libsubdirs); do \
+ 	  echo making lib in $$subdir; \
+ 	  (cd $$subdir && $(MAKE) lib) \
+ 	    || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
+ 	done && test -z "$$fail"
+ 
+ prog:
+-	@for i in ${progsubdirs}; do \
++	@+for i in ${progsubdirs}; do \
+ 	  echo Making all in $$i ; \
+ 	  (cd $$i; ${MAKE} all) \
+ 	    || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \

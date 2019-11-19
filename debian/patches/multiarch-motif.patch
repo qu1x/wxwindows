@@ -1,0 +1,20 @@
+--- a/configure
++++ b/configure
+@@ -2494,6 +2494,7 @@
+     /usr/athena/lib       \
+     /usr/local/x11r5/lib  \
+     /usr/lpp/Xamples/lib  \
++    /usr/lib/x86_64-linux-gnu \
+     ; \
+   do
+     for j in a so sl; do
+--- a/configure.in
++++ b/configure.in
+@@ -159,6 +159,7 @@
+     /usr/athena/lib       \
+     /usr/local/x11r5/lib  \
+     /usr/lpp/Xamples/lib  \
++    /usr/lib/x86_64-linux-gnu \
+     ; \
+   do
+     for j in a so sl; do

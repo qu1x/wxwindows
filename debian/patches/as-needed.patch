@@ -1,0 +1,35 @@
+--- a/config/linux-shared.mk
++++ b/config/linux-shared.mk
+@@ -26,15 +26,19 @@
+ 
+ ${SHARED_LIB}: $(SH_OBJS)
+ 	echo $(SH_OBJS)
+-	gcc -shared -Wl,-soname,lib${lib_name}.so -o ${SHARED_LIB} ${SH_OBJS}
++	gcc -shared -Wl,--as-needed,-soname,lib${lib_name}.so.${major_shared} -o ${SHARED_LIB} ${SH_OBJS} $$(find ${SHARED_DIR} -name libwx${GUI_SUFFIX}.so.${major_shared}) ${gui_libraries} -lXpm -lm -lstdc++
+ 	chmod a+x ${SHARED_LIB}
++	rm -f ${SHARED_DIR}/lib${lib_name}.so.${major_shared}
+ 	rm -f ${SHARED_DIR}/lib${lib_name}.so
++	(cd ${SHARED_DIR}; ln -s lib${lib_name}.so.${major_shared}.${minor_shared} lib${lib_name}.so.${major_shared})
+ 	(cd ${SHARED_DIR}; ln -s lib${lib_name}.so.${major_shared}.${minor_shared} lib${lib_name}.so)
+ 
+ install:: ${SHARED_LIB}
+ 	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
++	rm -f ${DESTDIR}${lib_dir}/lib${lib_name}.so.${major_shared}
+ 	rm -f ${DESTDIR}${lib_dir}/lib${lib_name}.so
++	ln -s lib${lib_name}.so.${major_shared}.${minor_shared} ${DESTDIR}${lib_dir}/lib${lib_name}.so.${major_shared}
+ 	ln -s lib${lib_name}.so.${major_shared}.${minor_shared} ${DESTDIR}${lib_dir}/lib${lib_name}.so
+ 
+ clean::
+-	rm -f ${SHARED_LIB} ${SHARED_DIR}/lib${lib_name}.so ${SH_OBJS}
++	rm -f ${SHARED_LIB} ${SHARED_DIR}/lib${lib_name}.so.${major_shared} ${SHARED_DIR}/lib${lib_name}.so ${SH_OBJS}
+--- a/make.tmpl.in
++++ b/make.tmpl.in
+@@ -34,7 +34,7 @@
+ INSTALL=$(top_srcdir)/install-sh
+ INSTALL_DATA=${INSTALL} -m 644
+ 
+-LDFLAGS=@LDFLAGS@
++LDFLAGS=@LDFLAGS@ -Wl,--as-needed
+ CXXFLAGS= -Wno-narrowing -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@ @CXXFLAGS@
+ CFLAGS= -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@  @CFLAGS@
+ PICFLAGS= @PICFLAGS@

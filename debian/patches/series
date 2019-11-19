@@ -1,0 +1,8 @@
+gcc434+autoconf.patch
+jobserver.patch
+multiarch-motif.patch
+distclean.patch
+no-narrowing.patch
+destdir.patch
+as-needed.patch
+bindir.patch

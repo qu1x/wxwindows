@@ -1,0 +1,30 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -79,6 +79,7 @@
+ 	   || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
+ 	done && test -z "$$fail"
+ 	rm config.cache config.status config.log include/WXconfig.h
++	rm make.tmpl
+ 	find . -name Makefile -exec rm {} \; -print
+ 
+ dist:
+--- a/utils/prologio/src/Makefile.in
++++ b/utils/prologio/src/Makefile.in
+@@ -64,6 +64,7 @@
+ install::
+ 
+ clean::
++	rm -f lex_yy.c y_tab.c
+ 	rm -f $(OBJS) $(DEMOOBJS) $(DEMOPROGS) *~ core *.bak ${SH_OBJS}
+ 	rm -f $(doc_src)/*.dvi $(doc_src)/*.aux $(doc_src)/*..bb\
+ 	$(doc_src)/*.blg $(doc_src)/*.idx $(doc_src)/*.ilg $(doc_src)/*.ind\
+--- a/utils/tex2rtf/src/wxwin/Makefile.in
++++ b/utils/tex2rtf/src/wxwin/Makefile.in
+@@ -79,6 +79,7 @@
+ html::	$(HTMLNAME)
+ 
+ clean::
++	rm -f ${TEX2RTFSRCS}
+ 	rm -f $(OBJS) $(DEMOOBJS) $(DEMOPROGS) *~ core *.bak ${SH_OBJS}
+ 	rm -f $(doc_src)/*.dvi $(doc_src)/*.aux $(doc_src)/*..bb\
+ 	$(doc_src)/*.blg $(doc_src)/*.idx $(doc_src)/*.ilg $(doc_src)/*.ind\

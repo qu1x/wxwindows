@@ -1,0 +1,12 @@
+Document: wx-doc
+Title: wxWindows Programming Manual
+Author: The wxWindows Developers
+Abstract: This manual describes the wxWindows cross-platform GUI toolkit.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/wx-doc/html/index.htm
+Files: /usr/share/doc/wx-doc/html/**/*
+
+Format: PDF
+Files: /usr/share/doc/wx-doc/pdf/*

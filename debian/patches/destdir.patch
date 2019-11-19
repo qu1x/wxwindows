@@ -1,0 +1,391 @@
+--- a/config/aix-shared.mk
++++ b/config/aix-shared.mk
+@@ -35,7 +35,7 @@
+ 	chmod a+x ${SHARED_LIB}
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL_DATA} ${SHARED_LIB} ${lib_dir}
++	${INSTALL_DATA} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 
+ clean::
+ 	rm -f ${SHARED_LIB} ${SH_OBJS}
+--- a/config/dgux-shared.mk
++++ b/config/dgux-shared.mk
+@@ -34,7 +34,7 @@
+ 	chmod a+x ${SHARED_LIB}
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 
+ clean::
+ 	rm -f ${SHARED_LIB} ${SH_OBJS}
+--- a/config/free_net-bsd-shared.mk
++++ b/config/free_net-bsd-shared.mk
+@@ -36,7 +36,7 @@
+ 	(cd ${SHARED_DIR}; ln -s lib${lib_name}.so.${major_shared}.${minor_shared} lib${lib_name}.so)
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 	rm -f ${lib_dir}/lib${lib_name}.so
+ 	ln -s ${lib_dir}/lib${lib_name}.so.${major_shared}.${minor_shared} ${lib_dir}/lib${lib_name}.so
+ 
+--- a/config/hpux-shared.mk
++++ b/config/hpux-shared.mk
+@@ -35,7 +35,7 @@
+ 	chmod a+x ${SHARED_LIB}
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 
+ clean::
+ 	rm -f ${SHARED_LIB} ${SH_OBJS}
+--- a/config/irix56-shared.mk
++++ b/config/irix56-shared.mk
+@@ -38,7 +38,7 @@
+ 
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 	rm -f ${lib_dir}/lib${lib_name}.so
+ 	ln ${lib_dir}/lib${lib_name}.so.${major_shared}.${minor_shared} ${lib_dir}/lib${lib_name}.so
+ 
+--- a/config/linux-shared.mk
++++ b/config/linux-shared.mk
+@@ -32,9 +32,9 @@
+ 	(cd ${SHARED_DIR}; ln -s lib${lib_name}.so.${major_shared}.${minor_shared} lib${lib_name}.so)
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
+-	rm -f ${lib_dir}/lib${lib_name}.so
+-	ln -s lib${lib_name}.so.${major_shared}.${minor_shared} ${lib_dir}/lib${lib_name}.so
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
++	rm -f ${DESTDIR}${lib_dir}/lib${lib_name}.so
++	ln -s lib${lib_name}.so.${major_shared}.${minor_shared} ${DESTDIR}${lib_dir}/lib${lib_name}.so
+ 
+ clean::
+ 	rm -f ${SHARED_LIB} ${SHARED_DIR}/lib${lib_name}.so ${SH_OBJS}
+--- a/config/osf-shared.mk
++++ b/config/osf-shared.mk
+@@ -36,7 +36,7 @@
+ 	(cd ${SHARED_DIR}; ln -s lib${lib_name}.so.${major_shared}.${minor_shared} lib${lib_name}.so)
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 	rm -f ${lib_dir}/lib${lib_name}.so
+ 	ln -s ${lib_dir}/lib${lib_name}.so.${major_shared}.${minor_shared} ${lib_dir}/lib${lib_name}.so
+ 
+--- a/config/solaris2-shared.mk
++++ b/config/solaris2-shared.mk
+@@ -38,7 +38,7 @@
+ 	(cd ${SHARED_DIR}; ln -s lib${lib_name}.so.${major_shared}.${minor_shared} lib${lib_name}.so)
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 	rm -f ${lib_dir}/lib${lib_name}.so
+ 	ln -s ${lib_dir}/lib${lib_name}.so.${major_shared}.${minor_shared} ${lib_dir}/lib${lib_name}.so
+ 
+--- a/config/sunos4-shared.mk
++++ b/config/sunos4-shared.mk
+@@ -38,7 +38,7 @@
+ 	(cd ${SHARED_DIR}; ln -s lib${lib_name}.so.${major_shared}.${minor_shared} lib${lib_name}.so)
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 	rm -f ${lib_dir}/lib${lib_name}.so
+ 	ln -s ${lib_dir}/lib${lib_name}.so.${major_shared}.${minor_shared} ${lib_dir}/lib${lib_name}.so
+ 
+--- a/config/sysvr4-shared.mk
++++ b/config/sysvr4-shared.mk
+@@ -34,7 +34,7 @@
+ 	chmod a+x ${SHARED_LIB}
+ 
+ install:: ${SHARED_LIB}
+-	${INSTALL} ${SHARED_LIB} ${lib_dir}
++	${INSTALL} ${SHARED_LIB} ${DESTDIR}${lib_dir}
+ 
+ clean::
+ 	rm -f ${SHARED_LIB} ${SH_OBJS}
+--- a/contrib/wxxpm/libxpm.34b/lib/Makefile.in
++++ b/contrib/wxxpm/libxpm.34b/lib/Makefile.in
+@@ -69,8 +69,8 @@
+ html::	$(HTMLNAME)
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/include/base/Makefile.in
++++ b/include/base/Makefile.in
+@@ -16,11 +16,11 @@
+ all:
+ 
+ install: ${HEADS}
+-	if [ ! -d ${head_dir} ]; then\
+-		mkdir -p ${head_dir};\
++	if [ ! -d ${DESTDIR}${head_dir} ]; then\
++		mkdir -p ${DESTDIR}${head_dir};\
+ 	fi;
+ 	for i in ${HEADS} ; do \
+-		${INSTALL_DATA} ./$$i ${head_dir} ; \
++		${INSTALL_DATA} ./$$i ${DESTDIR}${head_dir} ; \
+ 	done
+ 
+ clean:
+--- a/include/x/Makefile.in
++++ b/include/x/Makefile.in
+@@ -16,11 +16,11 @@
+ all:
+ 
+ install: ${HEADS}
+-	if [ ! -d ${head_dir} ] ; then\
+-		mkdir -p ${head_dir};\
++	if [ ! -d ${DESTDIR}${head_dir} ] ; then\
++		mkdir -p ${DESTDIR}${head_dir};\
+ 	fi;
+ 	for i in ${HEADS} ; do \
+-		${INSTALL_DATA} ./$$i ${head_dir} ; \
++		${INSTALL_DATA} ./$$i ${DESTDIR}${head_dir} ; \
+ 	done
+ 
+ clean:
+--- a/obj/Makefile.in
++++ b/obj/Makefile.in
+@@ -44,11 +44,11 @@
+ lib:: ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	if [ ! -d ${lib_dir} ]; then\
+-		mkdir -p ${lib_dir};\
++	if [ ! -d ${DESTDIR}${lib_dir} ]; then\
++		mkdir -p ${DESTDIR}${lib_dir};\
+ 	fi;
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ clean::
+ 	rm -f ${OBJS} ${STATIC_LIB} *~ core *.bak 
+--- a/utils/dialoged/src/Makefile.in
++++ b/utils/dialoged/src/Makefile.in
+@@ -54,7 +54,7 @@
+ prog:: ${PROG}
+ 
+ install:: ${PROG}
+-	${INSTALL} ${PROG} ${bin_dir}
++	${INSTALL} ${PROG} ${DESTDIR}${bin_dir}
+ 
+ .PHONY: demo
+ demo:: GUI_DEMODIR $(DEMOOBJS) $(DEMOPROGS)
+--- a/utils/hytext/src/Makefile.in
++++ b/utils/hytext/src/Makefile.in
+@@ -47,8 +47,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB} 
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/mfutils/src/Makefile.in
++++ b/utils/mfutils/src/Makefile.in
+@@ -49,8 +49,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/tex2rtf/src/Makefile.in
++++ b/utils/tex2rtf/src/Makefile.in
+@@ -55,7 +55,7 @@
+ prog:: ${PROG}
+ 
+ install:: ${PROG}
+-	${INSTALL} ${PROG} ${bin_dir}
++	${INSTALL} ${PROG} ${DESTDIR}${bin_dir}
+ 
+ .PHONY: demo
+ demo:: GUI_DEMODIR $(DEMOOBJS) $(DEMOPROGS)
+--- a/utils/tex2rtf/src/wxwin/Makefile.in
++++ b/utils/tex2rtf/src/wxwin/Makefile.in
+@@ -67,7 +67,7 @@
+ prog:: ${PROG}
+ 
+ install:: ${PROG}
+-	${INSTALL} ${PROG} ${bin_dir}
++	${INSTALL} ${PROG} ${DESTDIR}${bin_dir}
+ 
+ .PHONY: demo
+ demo:: GUI_DEMODIR $(DEMOOBJS) $(DEMOPROGS)
+--- a/utils/wxbuild/src/Makefile.in
++++ b/utils/wxbuild/src/Makefile.in
+@@ -55,10 +55,10 @@
+ prog:: ${PROG}
+ 
+ install:: ${PROG}
+-	if [ ! -d ${bin_dir} ]; then\
+-		mkdir -p ${bin_dir};\
++	if [ ! -d ${DESTDIR}${bin_dir} ]; then\
++		mkdir -p ${DESTDIR}${bin_dir};\
+ 	fi;
+-	${INSTALL} ${PROG} ${bin_dir};
++	${INSTALL} ${PROG} ${DESTDIR}${bin_dir};
+ 
+ .PHONY: demo
+ demo:: GUI_DEMODIR $(DEMOOBJS) $(DEMOPROGS)
+--- a/utils/wxchart/src/Makefile.in
++++ b/utils/wxchart/src/Makefile.in
+@@ -50,8 +50,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ SHARED_DIR=
+ SH_OBJDIR=${local_obj}/${GUI_OBJ}/shared
+--- a/utils/wxgraph/src/Makefile.in
++++ b/utils/wxgraph/src/Makefile.in
+@@ -50,8 +50,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/wxgrid/src/Makefile.in
++++ b/utils/wxgrid/src/Makefile.in
+@@ -50,8 +50,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/wxhelp/src/Makefile.in
++++ b/utils/wxhelp/src/Makefile.in
+@@ -40,7 +40,7 @@
+ all:: prog
+ 
+ install:: ${NAME}
+-	${INSTALL} ${NAME} ${bin_dir}
++	${INSTALL} ${NAME} ${DESTDIR}${bin_dir}
+ 
+ .PHONY: prog
+ prog:: ${NAME}
+--- a/utils/wxhelp2/src/Makefile.in
++++ b/utils/wxhelp2/src/Makefile.in
+@@ -53,7 +53,7 @@
+ prog:: ${PROG}
+ 
+ install:: ${PROG}
+-	${INSTALL} ${PROG} ${bin_dir}
++	${INSTALL} ${PROG} ${DESTDIR}${bin_dir}
+ 
+ .PHONY: demo
+ demo:: GUI_DEMODIR $(DEMOOBJS) $(DEMOPROGS)
+--- a/utils/wximage/zlib/makefile.dj2
++++ b/utils/wximage/zlib/makefile.dj2
+@@ -77,8 +77,8 @@
+ install: $(INCL) $(LIBS)
+ 	-@if not exist $(INCLUDE_PATH)\nul mkdir $(INCLUDE_PATH)
+ 	-@if not exist $(LIBRARY_PATH)\nul mkdir $(LIBRARY_PATH)
+-	for %%f in ($(INCL)) do $(INSTALL) %%f $(INCLUDE_PATH)
+-	for %%p in ($(LIBS)) do $(INSTALL) %%p $(LIBRARY_PATH)
++	for %%f in ($(INCL)) do $(INSTALL) %%f ${DESTDIR}$(INCLUDE_PATH)
++	for %%p in ($(LIBS)) do $(INSTALL) %%p ${DESTDIR}$(LIBRARY_PATH)
+ 
+ uninstall:
+ 	for %%f in ($(INCL)) do $(RM) $(INCLUDE_PATH)\%%f
+--- a/utils/wxprop/src/Makefile.in
++++ b/utils/wxprop/src/Makefile.in
+@@ -50,8 +50,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/wxtab/src/Makefile.in
++++ b/utils/wxtab/src/Makefile.in
+@@ -50,8 +50,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/wxtree/src/Makefile.in
++++ b/utils/wxtree/src/Makefile.in
+@@ -50,8 +50,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/wxweb/src/Makefile.in
++++ b/utils/wxweb/src/Makefile.in
+@@ -58,8 +58,8 @@
+ all:: GUI_OBJDIR ${STATIC_LIB}
+ 
+ install:: ${STATIC_LIB}
+-	${INSTALL_DATA} ${STATIC_LIB} ${lib_dir}
+-	${RANLIB} ${lib_dir}/lib${lib_name}.a
++	${INSTALL_DATA} ${STATIC_LIB} ${DESTDIR}${lib_dir}
++	${RANLIB} ${DESTDIR}${lib_dir}/lib${lib_name}.a
+ 
+ #
+ # define shared library
+--- a/utils/xpmshow/src/Makefile.in
++++ b/utils/xpmshow/src/Makefile.in
+@@ -60,7 +60,7 @@
+ html::	$(HTMLNAME)
+ 
+ install:: ${PROG}
+-	${INSTALL} ${PROG} ${bin_dir}
++	${INSTALL} ${PROG} ${DESTDIR}${bin_dir}
+ 
+ clean::
+ 	rm -f $(OBJS) $(DEMOOBJS) $(DEMOPROGS) *~ core *.bak
