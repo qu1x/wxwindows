@@ -1,7 +1,7 @@
 Source: wxwindows
 Priority: optional
 Maintainer: Rouven Spreckels <n3vu0r@qu1x.org>
-Build-Depends: debhelper (>= 11), dh-exec (>=0.3), dh-buildinfo, d-shlibs,
+Build-Depends: debhelper (>= 11), dh-exec (>= 0.3), dh-buildinfo, d-shlibs,
  libxpm-dev, libxmu-dev, libmotif-dev, libx11-dev
 Standards-Version: 4.1.3
 Section: libs
@@ -20,7 +20,7 @@ Description: wxWindows Cross-platform C++ GUI toolkit (documentation)
  GUI components and other facilities on several popular platforms (and some
  unpopular ones as well).
  .
- This package provides HTML/PDF/PS versions of the wxWindows reference manual.
+ This package provides HTML and PDF versions of the wxWindows reference manual.
 
 Package: wx-headers
 Section: libdevel
@@ -52,8 +52,9 @@ Package: libwxmotif-dev
 Section: libdevel
 Architecture: any
 Multi-Arch: same
-Depends: libwxmotif (= ${binary:Version}), wx-headers, ${misc:Depends}
-Suggests: wx-doc
+Depends: wx-headers (= ${source:Version}), libwxmotif (= ${binary:Version}),
+ ${misc:Depends}
+Suggests: wx-doc (= ${source:Version})
 Description: wxWindows Cross-platform C++ GUI toolkit (Motif development)
  wxWindows (legacy version of wxWidges) is a class library for C++ providing
  GUI components and other facilities on several popular platforms (and some
@@ -66,7 +67,7 @@ Section: utils
 Architecture: any
 Multi-Arch: no
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libwxmotif-dev, wx-doc
+Suggests: wx-doc (= ${source:Version}), libwxmotif-dev (= ${binary:Version})
 Description: wxWindows Cross-platform C++ GUI toolkit (Motif tools)
  wxWindows (legacy version of wxWidges) is a class library for C++ providing
  GUI components and other facilities on several popular platforms (and some
