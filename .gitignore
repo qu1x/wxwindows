@@ -1,0 +1,8 @@
+wxwindows-1.68e/
+wxwindows_1.68e.orig/
+*.deb
+*.dsc
+*.buildinfo
+*.changes
+*.gz
+*.xz
