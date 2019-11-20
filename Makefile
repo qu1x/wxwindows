@@ -33,11 +33,7 @@ $(DST): | $(SRC)
 
 $(SRC):
 	mkdir $@
-	wget -P $@ $(URL)wx168_1.tgz
-	wget -P $@ $(URL)wx168_2.tgz
-	wget -P $@ $(URL)wx168htm.tgz
-	wget -P $@ $(URL)wx168pdf.tgz
-	wget -P $@ $(URL)wx168ps.tgz
+	cd $@ && curl -Lo 'wx168#1.tgz' '$(URL)wx168{_1,_2,htm,pdf,ps}.tgz/download'
 	cd $@ && shasum -c ../wxwindows_1.68e.orig.sha
 
 Makefile:;
