@@ -1,0 +1,6 @@
+debian/docs/dialoged_motif.1
+debian/docs/tex2rtf.1
+debian/docs/tex2rtf_motif.1
+debian/docs/wxbuild_motif.1
+debian/docs/wxhelp_motif.1
+debian/docs/xpmshow_motif.1
