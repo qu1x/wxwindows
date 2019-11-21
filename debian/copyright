@@ -65,3 +65,8 @@ License: Fair
  any entity that uses the works is notified of this instrument.
  .
  DISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.
+
+Files: debian/patches/support-gcc-4.3.4+autoconf.patch
+Copyright: 2006, 2007, 2009 Gentoo Foundation
+License: GPL-2
+ /usr/share/common-licenses/GPL-2
