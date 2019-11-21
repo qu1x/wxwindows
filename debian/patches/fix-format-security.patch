@@ -1,0 +1,54 @@
+--- a/src/base/wb_utils.cpp
++++ b/src/base/wb_utils.cpp
+@@ -1234,7 +1234,7 @@
+ #ifdef wx_msw
+   OutputDebugString((LPCSTR)txt);
+ #else
+-  fprintf(stderr, txt);
++  fprintf(stderr, "%s", txt);
+ #endif
+   setp(pbase(), epptr());
+   delete[] txt;
+@@ -1250,7 +1250,7 @@
+ #ifdef wx_msw
+   OutputDebugString((LPCSTR)txt);
+ #else
+-  fprintf(stderr, txt);
++  fprintf(stderr, "%s", txt);
+ #endif
+   setp(pbase(), epptr());
+   delete[] txt;
+--- a/src/base/wx_mem.cpp
++++ b/src/base/wx_mem.cpp
+@@ -917,7 +917,7 @@
+ #ifdef wx_msw
+     OutputDebugString((LPCSTR)buffer) ;
+ #else
+-    fprintf(stderr, buffer);
++    fprintf(stderr, "%s", buffer);
+ #endif
+ }
+ 
+@@ -949,7 +949,7 @@
+ #ifdef wx_msw
+     OutputDebugString((LPCSTR)buffer) ;
+ #else
+-    fprintf(stderr, buffer);
++    fprintf(stderr, "%s", buffer);
+ #endif
+ }
+ 
+--- a/utils/hytext/src/hytext.cpp
++++ b/utils/hytext/src/hytext.cpp
+@@ -2398,9 +2398,9 @@
+ void wxHyperTextWindow::OutputTrans(int which, char *buf)
+ {
+   if (((which == 1) || (which == -1)) && transFile1)
+-    fprintf(transFile1, buf);
++    fprintf(transFile1, "%s", buf);
+   if (((which == 2) || (which == -1)) && transFile2)
+-    fprintf(transFile2, buf);
++    fprintf(transFile2, "%s", buf);
+ }
+ 
+ // Starts the translation process

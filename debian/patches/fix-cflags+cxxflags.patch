@@ -1,0 +1,22 @@
+--- a/configure
++++ b/configure
+@@ -2688,8 +2688,6 @@
+ 
+ canonical=$host
+ configuration=$host_alias
+-CXXFLAGS=
+-CFLAGS=
+ SH_OBJS='$(SH_OBJS)'
+ SH_DEP='makedepend -a -p$(obj_dest)/shared/ -- ${CXXFLAGS} -- ${SRCS}'
+ 
+--- a/configure.in
++++ b/configure.in
+@@ -295,8 +295,6 @@
+ AC_CANONICAL_HOST
+ canonical=$host
+ configuration=$host_alias
+-CXXFLAGS=
+-CFLAGS=
+ SH_OBJS='$(SH_OBJS)'
+ SH_DEP='makedepend -a -p$(obj_dest)/shared/ -- ${CXXFLAGS} -- ${SRCS}'
+ 
