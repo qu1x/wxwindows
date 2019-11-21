@@ -1,13 +1,25 @@
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -79,6 +79,7 @@
+@@ -71,6 +71,7 @@
  	   || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
  	done && test -z "$$fail"
- 	rm config.cache config.status config.log include/WXconfig.h
-+	rm make.tmpl
- 	find . -name Makefile -exec rm {} \; -print
+ 	rm -f config.cache config.status config.log include/WXconfig.h
++	rm -rf bin
+ 
+ distclean:
+ 	for i in ${instdirs}; do \
+@@ -78,8 +79,9 @@
+ 	  (cd $$i; ${MAKE} distclean) \
+ 	   || case "$(MFLAGS)" in *k*) fail=yes;; *) exit 1;; esac; \
+ 	done && test -z "$$fail"
+-	rm config.cache config.status config.log include/WXconfig.h
+-	find . -name Makefile -exec rm {} \; -print
++	rm -f config.cache config.status config.log include/WXconfig.h
++	rm -f make.tmpl
++	find . -name Makefile -exec rm -f {} \; -print
  
  dist:
+ 	tar cvf wxshlib1.67-1.tar config configure config.guess config.sub\
 --- a/utils/prologio/src/Makefile.in
 +++ b/utils/prologio/src/Makefile.in
 @@ -64,6 +64,7 @@

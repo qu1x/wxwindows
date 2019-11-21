@@ -4,7 +4,7 @@
      /usr/athena/lib       \
      /usr/local/x11r5/lib  \
      /usr/lpp/Xamples/lib  \
-+    /usr/lib/x86_64-linux-gnu \
++    /usr/lib/$build \
      ; \
    do
      for j in a so sl; do
@@ -14,7 +14,7 @@
      /usr/athena/lib       \
      /usr/local/x11r5/lib  \
      /usr/lpp/Xamples/lib  \
-+    /usr/lib/x86_64-linux-gnu \
++    /usr/lib/$build \
      ; \
    do
      for j in a so sl; do

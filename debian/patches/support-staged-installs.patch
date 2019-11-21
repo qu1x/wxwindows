@@ -315,17 +315,27 @@
  demo:: GUI_DEMODIR $(DEMOOBJS) $(DEMOPROGS)
 --- a/utils/wximage/zlib/makefile.dj2
 +++ b/utils/wximage/zlib/makefile.dj2
-@@ -77,8 +77,8 @@
+@@ -75,14 +75,14 @@
+ .PHONY : uninstall clean
+ 
  install: $(INCL) $(LIBS)
- 	-@if not exist $(INCLUDE_PATH)\nul mkdir $(INCLUDE_PATH)
- 	-@if not exist $(LIBRARY_PATH)\nul mkdir $(LIBRARY_PATH)
+-	-@if not exist $(INCLUDE_PATH)\nul mkdir $(INCLUDE_PATH)
+-	-@if not exist $(LIBRARY_PATH)\nul mkdir $(LIBRARY_PATH)
 -	for %%f in ($(INCL)) do $(INSTALL) %%f $(INCLUDE_PATH)
 -	for %%p in ($(LIBS)) do $(INSTALL) %%p $(LIBRARY_PATH)
++	-@if not exist $(INCLUDE_PATH)\nul mkdir ${DESTDIR}$(INCLUDE_PATH)
++	-@if not exist $(LIBRARY_PATH)\nul mkdir ${DESTDIR}$(LIBRARY_PATH)
 +	for %%f in ($(INCL)) do $(INSTALL) %%f ${DESTDIR}$(INCLUDE_PATH)
 +	for %%p in ($(LIBS)) do $(INSTALL) %%p ${DESTDIR}$(LIBRARY_PATH)
  
  uninstall:
- 	for %%f in ($(INCL)) do $(RM) $(INCLUDE_PATH)\%%f
+-	for %%f in ($(INCL)) do $(RM) $(INCLUDE_PATH)\%%f
+-	for %%p in ($(LIBS)) do $(RM) $(LIBRARY_PATH)\%%p
++	for %%f in ($(INCL)) do $(RM) ${DESTDIR}$(INCLUDE_PATH)\%%f
++	for %%p in ($(LIBS)) do $(RM) ${DESTDIR}$(LIBRARY_PATH)\%%p
+ 
+ clean:
+ 	for %%p in (*.d *.o *.exe libz.a libz.so* foo.gz) do $(RM) %%p
 --- a/utils/wxprop/src/Makefile.in
 +++ b/utils/wxprop/src/Makefile.in
 @@ -50,8 +50,8 @@

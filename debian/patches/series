@@ -1,8 +1,8 @@
-gcc434+autoconf.patch
-jobserver.patch
-multiarch-motif.patch
-distclean.patch
-no-narrowing.patch
-destdir.patch
-as-needed.patch
-bindir.patch
+support-gcc-4.3.4+autoconf.patch
+fix-missing-bin-dir.patch
+fix-jobserver.patch
+fix-clean+distclean.patch
+support-staged-installs.patch
+allow-narrowing.patch
+link-shlibs-as-needed.patch
+detect-multiarch-motif.patch

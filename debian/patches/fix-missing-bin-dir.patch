@@ -1,0 +1,10 @@
+--- a/make.rule
++++ b/make.rule
+@@ -80,6 +80,7 @@
+ # Rule for building program
+ #
+ ${PROG} : $(OBJS)
++	mkdir -p ${bin_dest}
+ ifneq ($(GUI_OBJ),)
+ 	${CXX} ${LDFLAGS} ${CXXFLAGS} ${OBJS} -o ${PROG} ${link_dir} \
+ 	${local_lib} ${wx_lib} ${gui_libraries} ${extra_lib} ${math_lib}
