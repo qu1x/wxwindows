@@ -16,7 +16,7 @@ Multi-Arch: foreign
 Depends: ${misc:Depends}
 Suggests: doc-base, www-browser
 Description: wxWindows Cross-platform C++ GUI toolkit (documentation)
- wxWindows (legacy version of wxWidges) is a class library for C++ providing
+ wxWindows (legacy version of wxWidgets) is a class library for C++ providing
  GUI components and other facilities on several popular platforms (and some
  unpopular ones as well).
  .
@@ -28,7 +28,7 @@ Architecture: all
 Multi-Arch: foreign
 Depends: ${misc:Depends}
 Description: wxWindows Cross-platform C++ GUI toolkit (header files)
- wxWindows (legacy version of wxWidges) is a class library for C++ providing
+ wxWindows (legacy version of wxWidgets) is a class library for C++ providing
  GUI components and other facilities on several popular platforms (and some
  unpopular ones as well).
  .
@@ -41,7 +41,7 @@ Architecture: any
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: wxWindows Cross-platform C++ GUI toolkit (Motif runtime)
- wxWindows (legacy version of wxWidges) is a class library for C++ providing
+ wxWindows (legacy version of wxWidgets) is a class library for C++ providing
  GUI components and other facilities on several popular platforms (and some
  unpopular ones as well).
  .
@@ -56,7 +56,7 @@ Depends: wx-headers (= ${source:Version}), libwxmotif (= ${binary:Version}),
  ${misc:Depends}
 Suggests: wx-doc (= ${source:Version})
 Description: wxWindows Cross-platform C++ GUI toolkit (Motif development)
- wxWindows (legacy version of wxWidges) is a class library for C++ providing
+ wxWindows (legacy version of wxWidgets) is a class library for C++ providing
  GUI components and other facilities on several popular platforms (and some
  unpopular ones as well).
  .
@@ -69,7 +69,7 @@ Multi-Arch: no
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: wx-doc (= ${source:Version}), libwxmotif-dev (= ${binary:Version})
 Description: wxWindows Cross-platform C++ GUI toolkit (Motif tools)
- wxWindows (legacy version of wxWidges) is a class library for C++ providing
+ wxWindows (legacy version of wxWidgets) is a class library for C++ providing
  GUI components and other facilities on several popular platforms (and some
  unpopular ones as well).
  .

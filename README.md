@@ -1,6 +1,6 @@
 # Debian Packages: wxWindows Cross-platform C++ GUI toolkit
 
-wxWindows (legacy version of wxWidges) is a class library for C++ providing
+wxWindows (legacy version of wxWidgets) is a class library for C++ providing
 GUI components and other facilities on several popular platforms (and some
 unpopular ones as well).
 
