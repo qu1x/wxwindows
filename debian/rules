@@ -6,7 +6,7 @@
 override_dh_autoreconf:
 
 override_dh_auto_configure:
-	DH_COMPAT=10 dh_auto_configure -- --enable-shared
+	dh_auto_configure -- --enable-shared
 
 override_dh_auto_build:
 	dh_auto_build

@@ -1,0 +1,42 @@
+--- a/configure
++++ b/configure
+@@ -52,6 +52,7 @@
+ sysconfdir='${prefix}/etc'
+ sharedstatedir='${prefix}/com'
+ localstatedir='${prefix}/var'
++runstatedir='${localstatedir}/run]'
+ libdir='${exec_prefix}/lib'
+ includedir='${prefix}/include'
+ oldincludedir='/usr/include'
+@@ -168,6 +169,7 @@
+   --sharedstatedir=DIR    modifiable architecture-independent data in DIR
+                           [PREFIX/com]
+   --localstatedir=DIR     modifiable single-machine data in DIR [PREFIX/var]
++  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
+   --libdir=DIR            object code libraries in DIR [EPREFIX/lib]
+   --includedir=DIR        C header files in DIR [PREFIX/include]
+   --oldincludedir=DIR     C header files for non-gcc in DIR [/usr/include]
+@@ -301,6 +303,15 @@
+   | -silent | --silent | --silen | --sile | --sil)
+     silent=yes ;;
+ 
++  -runstatedir | --runstatedir | --runstatedi | --runstated \
++  | --runstate | --runstat | --runsta | --runst | --runs \
++  | --run | --ru | --r)
++    ac_prev=runstatedir ;;
++  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
++  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
++  | --run=* | --ru=* | --r=*)
++    runstatedir=$ac_optarg ;;
++
+   -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
+     ac_prev=sbindir ;;
+   -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
+@@ -3203,6 +3214,7 @@
+ s%@sysconfdir@%$sysconfdir%g
+ s%@sharedstatedir@%$sharedstatedir%g
+ s%@localstatedir@%$localstatedir%g
++s%@runstatedir@%$runstatedir%g
+ s%@libdir@%$libdir%g
+ s%@includedir@%$includedir%g
+ s%@oldincludedir@%$oldincludedir%g

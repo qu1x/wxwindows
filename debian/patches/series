@@ -8,3 +8,4 @@ link-shlibs-as-needed.patch
 detect-multiarch-motif.patch
 fix-format-security.patch
 fix-cflags+cxxflags.patch
+add-runstatedir.patch
