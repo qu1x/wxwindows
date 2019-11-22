@@ -8,9 +8,10 @@ unpopular ones as well).
 
 The Debian upstream tarball is generated from multiple original upstream
 tarballs which will be fetched from [SourgeForge] and verified against
-checksums.
+[checksums].
 
 [SourgeForge]: https://sourceforge.net/
+[checksums]: wxwindows_1.68e.orig.sha
 
 ```sh
 make
