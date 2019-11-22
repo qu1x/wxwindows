@@ -7,8 +7,7 @@ unpopular ones as well).
 ## Generate Debian Upstream Tarball
 
 The Debian upstream tarball is generated from multiple original upstream
-tarballs which will be fetched from [SourgeForge] and verified against
-[checksums].
+tarballs - fetched from [SourgeForge] and verified against [checksums].
 
 [SourgeForge]: https://sourceforge.net/
 [checksums]: wxwindows_1.68e.orig.sha
