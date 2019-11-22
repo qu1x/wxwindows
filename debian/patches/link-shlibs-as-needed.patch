@@ -30,6 +30,6 @@
  
 -LDFLAGS=@LDFLAGS@
 +LDFLAGS=@LDFLAGS@ -Wl,--as-needed
- CXXFLAGS= -Wno-narrowing -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@ @CXXFLAGS@
+ CXXFLAGS= -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@ @CXXFLAGS@
  CFLAGS= -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@  @CFLAGS@
  PICFLAGS= @PICFLAGS@
