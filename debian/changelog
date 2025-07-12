@@ -1,3 +1,9 @@
+wxwindows (1.68e-2) stable; urgency=medium
+
+  * Fix build on Debian Trixie.
+
+ -- Rouven Spreckels <rs@qu1x.dev>  Sat, 12 Jul 2025 11:02:51 +0200
+
 wxwindows (1.68e-1) stable; urgency=medium
 
   * Initial release
