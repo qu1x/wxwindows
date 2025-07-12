@@ -9,3 +9,4 @@ fix-format-security.patch
 fix-cflags+cxxflags.patch
 add-runstatedir.patch
 allow-narrowing+be-permissive.patch
+allow-implicit-int.patch

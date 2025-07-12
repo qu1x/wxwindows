@@ -1,0 +1,22 @@
+--- a/make.tmpl.in
++++ b/make.tmpl.in
+@@ -36,7 +36,7 @@
+ 
+ LDFLAGS=@LDFLAGS@ -Wl,--as-needed
+ CXXFLAGS= -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@ -Wno-narrowing -fpermissive @CXXFLAGS@
+-CFLAGS= -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@  @CFLAGS@
++CFLAGS= -D@GUI@ $(local_inc) -I$(top_srcdir)/include/base -I$(top_srcdir)/include/x @x_includes@ @gui_includes@ -Wno-error=implicit-int @CFLAGS@
+ PICFLAGS= @PICFLAGS@
+ 
+ SRCSUFF = @SRCSUFF@
+--- a/configure
++++ b/configure
+@@ -1090,7 +1090,7 @@
+ cat > conftest.$ac_ext <<EOF
+ #line 1081 "configure"
+ #include "confdefs.h"
+-main(){return(0);}
++int main(){return(0);}
+ EOF
+ if { (eval echo configure:1085: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
+   ac_cv_prog_cc_works=yes

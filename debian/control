@@ -1,7 +1,7 @@
 Source: wxwindows
 Priority: optional
 Maintainer: Rouven Spreckels <rs@qu1x.dev>
-Build-Depends: debhelper-compat (= 12), dh-buildinfo, dh-exec, fakeroot,
+Build-Depends: debhelper-compat (= 13), dh-buildinfo, dh-exec, fakeroot,
  flex, bison, libxpm-dev, libxmu-dev, libmotif-dev
 Standards-Version: 4.1.3
 Section: libs
